@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<style>
+  p {
+    color: red;
+  }
+  span {
+    color: blue;
+  }
+  </style>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<p>Has an attached custom event.</p>
+<button>Trigger custom event</button>
+<span style="display: none;"></span>
+<a href="http://jquery.com">default click action is prevented</a>
+<div id="log"></div>
+
+<script>
+		$(document).ready(function(){
+			$("button").click(function(){
+				$("p").text('John,hi there!');
+				$("span").stop()
+				    .css( "opacity", 1 )
+				    .text( "myName = John" )
+				    .fadeIn( 30 )
+				    .fadeOut( 1000 );
+			});
+			$( "a" ).click(function( event ) {
+  event.preventDefault();
+  $('div').append( "default " + event.type + " prevented" )
+    
+});
+		});
+
+
+</script>
+
+</body>
+</html>
